@@ -39,13 +39,18 @@ function stockBadge(stock) {
 }
 
 function renderProducts() {
+  if (!grid) return;
   grid.innerHTML = "";
+  
+  // Cache-Buster, damit GitHub und Browser die Bilder nicht blockieren
+  const cacheBuster = `?v=${Date.now()}`;
+
   products.filter(p => p.enabled).forEach(p => {
     const card = document.createElement("div");
     card.className = "product";
     card.innerHTML = `
       <div class="product-image">
-        <img src="${p.image}" alt="${p.name}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'📦'}))"/>
+        <img src="${p.image}${cacheBuster}" alt="${p.name}" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'📦'}))"/>
       </div>
       <div class="product-body">
         <div class="product-head">
@@ -211,12 +216,14 @@ const cartClose = document.getElementById('cart-close');
 if (cartClose) cartClose.addEventListener('click', ()=>{ if (!cartModal) return; cartModal.hidden = true; cartModal.setAttribute('aria-hidden','true'); });
 
 // Handle add-to-cart and cart button clicks using delegation
-grid.addEventListener('click', (e)=>{
-  const add = e.target.closest('.add-cart');
-  const buy = e.target.closest('.buy-discord');
-  if (add) { const id = Number(add.dataset.id); addToCart(id); add.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:200}); }
-  if (buy) { const id = Number(buy.dataset.id); addToCart(id); window.open(DISCORD_LINK,'_blank'); }
-});
+if (grid) {
+  grid.addEventListener('click', (e)=>{
+    const add = e.target.closest('.add-cart');
+    const buy = e.target.closest('.buy-discord');
+    if (add) { const id = Number(add.dataset.id); addToCart(id); add.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:200}); }
+    if (buy) { const id = Number(buy.dataset.id); addToCart(id); window.open(DISCORD_LINK,'_blank'); }
+  });
+}
 
 // Cart item controls
 if (cartItemsEl) {
