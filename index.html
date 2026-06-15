@@ -17,7 +17,7 @@
   <div class="container nav-inner">
     <a href="#home" class="logo">Wind <span>Market</span>
       <span class="verified-badge" aria-hidden="true" title="Verified by Wind SMP">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10z"></path><path d="M9.5 12.5l2 2 4-4" stroke="white"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         <span class="small">Verified</span>
       </span>
     </a>
@@ -29,13 +29,16 @@
     </nav>
     <div class="nav-actions">
       <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
-        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       </button>
       <button id="cart-btn" class="icon-btn" aria-label="Open cart" title="Cart">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"></circle><circle cx="20" cy="20" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span id="cart-badge" class="badge" hidden>0</span>
       </button>
-      <a href="#" id="ticket-btn" class="btn btn-primary">Open a Ticket</a>
+      <button id="account-btn" class="icon-btn" aria-label="Account">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -44,8 +47,8 @@
 <section id="home" class="hero">
   <div class="container">
     <h1>Get your items. <span class="accent">Trusted. Fast. Safe.</span></h1>
-<p class="subtitle">This is NOT Wind SMP's official item shop. This market was made by a regular Player. <span class="verified-note">Verified by the community</span>.</p>
-  <div class="badges">
+    <p class="subtitle">This is NOT Wind SMP's official item shop. This market was made by a regular Player. <span class="verified-note">Verified by the community</span>.</p>
+    <div class="badges">
       <div class="badge">✅ Verified Seller</div>
       <div class="badge">⚡ Fast Delivery (within 24h)</div>
       <div class="badge">🛡️ 100% Safe (we never contact you privately)</div>
@@ -100,7 +103,7 @@
     <div class="faq">
       <details>
         <summary>How does the purchase process work?</summary>
-        <p>Click "Buy on Discord" on any item. You'll be taken directly to our official Discord server – no signup, no account needed. Open a ticket there and a staff member will deliver your item within 24 hours.</p>
+        <p>Add items to your cart, proceed to checkout, and create a ticket. A staff member will deliver your item within 24 hours directly to your Minecraft account.</p>
       </details>
       <details>
         <summary>Will staff contact me outside of Discord tickets?</summary>
@@ -128,7 +131,7 @@
     <div>
       <div class="logo">Wind <span>SMP</span>
         <span class="verified-badge" aria-hidden="true" title="Verified by Wind SMP">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10z"></path><path d="M9.5 12.5l2 2 4-4" stroke="white"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           <span class="small">Verified</span>
         </span>
       </div>
@@ -147,11 +150,6 @@
   </div>
 </footer>
 
-<!-- No modal – all orders go directly to Discord, no signup required -->
-
-<script src="products.js"></script>
-<script src="main.js"></script>
-
 <!-- Fake Orders widget -->
 <aside class="orders-widget" id="orders-widget" aria-live="polite">
   <h4>Recent Orders</h4>
@@ -160,28 +158,83 @@
 </aside>
 
 <!-- Cart modal -->
-<div id="cart-modal" class="cart-modal" aria-hidden="true" hidden>
-  <div class="cart-panel">
+<div id="cart-modal" class="modal-overlay" aria-hidden="true" hidden>
+  <div class="modal-content cart-panel">
     <button id="cart-close" class="modal-close" aria-label="Close cart">×</button>
     <h3>Your Cart <span id="cart-count" class="small muted"></span></h3>
     <div id="cart-items" class="cart-items small muted">Your cart is empty.</div>
-    <!-- hidden promo area, revealed only by the secret action -->
-    <div id="promo-area" class="promo-area" hidden>
-      <label for="promo-code" class="small muted">Promo code</label>
-      <div style="display:flex;gap:8px;margin-top:6px;">
-        <input id="promo-code" placeholder="Enter code" />
-        <button id="apply-promo" class="btn">Apply</button>
-      </div>
-      <div id="promo-msg" class="small muted" style="margin-top:6px;display:none;"></div>
-    </div>
-      <div class="cart-footer">
+    <div class="cart-footer">
       <div class="cart-total">Total: <strong id="cart-total">€0.00</strong></div>
       <div class="cart-actions">
-        <button id="checkout-btn" class="btn btn-primary">Checkout on Discord</button>
+        <button id="checkout-btn" class="btn btn-primary">Proceed to Checkout</button>
         <button id="clear-cart" class="btn">Clear</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Checkout modal (create ticket) -->
+<div id="checkout-modal" class="modal-overlay" aria-hidden="true" hidden>
+  <div class="modal-content checkout-panel">
+    <button id="checkout-close" class="modal-close" aria-label="Close">×</button>
+    <h3>Checkout & Create Ticket</h3>
+    <div class="checkout-form">
+      <div class="form-group">
+        <label for="username">Minecraft Username*</label>
+        <input type="text" id="username" placeholder="Enter your username" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email*</label>
+        <input type="email" id="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="discord">Discord Username*</label>
+        <input type="text" id="discord" placeholder="YourName#1234" required />
+      </div>
+      <div class="form-group">
+        <label for="notes">Special Notes (optional)</label>
+        <textarea id="notes" placeholder="Any special requests or details..." rows="3"></textarea>
+      </div>
+      <div class="checkout-summary">
+        <h4>Order Summary</h4>
+        <div id="checkout-items"></div>
+        <div class="summary-total">Total: <strong id="checkout-total">€0.00</strong></div>
+      </div>
+      <div class="form-actions">
+        <button id="create-ticket-btn" class="btn btn-primary">Create Ticket & Open Discord</button>
+        <button id="checkout-cancel" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Account / Tickets modal -->
+<div id="account-modal" class="modal-overlay" aria-hidden="true" hidden>
+  <div class="modal-content account-panel">
+    <button id="account-close" class="modal-close" aria-label="Close">×</button>
+    <h3>My Account & Tickets</h3>
+    <div class="account-tabs">
+      <button class="tab-btn active" data-tab="tickets">My Tickets</button>
+      <button class="tab-btn" data-tab="profile">Profile</button>
+    </div>
+    
+    <!-- Tickets Tab -->
+    <div id="tickets-tab" class="tab-content active">
+      <div id="tickets-list" class="tickets-list">
+        <p class="muted">No tickets yet. Create one by completing a purchase!</p>
+      </div>
+    </div>
+    
+    <!-- Profile Tab -->
+    <div id="profile-tab" class="tab-content">
+      <div id="profile-info">
+        <p class="muted">Not logged in. Complete a purchase to create an account.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

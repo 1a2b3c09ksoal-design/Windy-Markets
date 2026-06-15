@@ -1,4 +1,4 @@
-// products.js – Restored original shop + kept two playful items (Mystery Box, Lucky Cookie)
+// products.js – Complete product catalog
 const products = [
   { id: 1, name: "Shulker Of XP Bottles", description: "Shulker Of Experience Bottles", price: 0.99, stock: 150, enabled: true, image: "xp_bottle.gif" },
   { id: 2, name: "Elytra", description: "A fully functional Elytra", price: 29.99, stock: 0, enabled: true, image: "elytra.gif" },
@@ -9,5 +9,4 @@ const products = [
   { id: 7, name: "Gilded Blackstone", description: "Gilded Blackstone", price: 0.99, stock: 78, enabled: true, image: "gilded.png" },
   { id: 8, name: "Windrill", description: "Special Windrill tool for fast mining", price: 1.99, stock: 10, enabled: true, image: "drill.png" },
   { id: 9, name: "End Crystal", description: "1x End Crystal for Crystal PvP", price: 0.50, stock: 320, enabled: true, image: "end_crystal.gif" },
-
 ];
