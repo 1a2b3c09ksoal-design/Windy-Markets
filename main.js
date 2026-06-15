@@ -1,5 +1,31 @@
-// Wind SMP Shop – main.js (Premium Edition)
+// Wind SMP Shop – main.js (Premium Edition - FIXED)
 const DISCORD_LINK = "https://discord.gg/NheD55yTAr";
+
+// ============================================
+// === MODAL MANAGER ===
+// ============================================
+const modals = {
+  cart: document.getElementById('cart-modal'),
+  checkout: document.getElementById('checkout-modal'),
+  account: document.getElementById('account-modal')
+};
+
+function closeAllModals() {
+  Object.values(modals).forEach(modal => {
+    if (modal) {
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
+function openModal(modalName) {
+  closeAllModals();
+  if (modals[modalName]) {
+    modals[modalName].hidden = false;
+    modals[modalName].setAttribute('aria-hidden', 'false');
+  }
+}
 
 // ============================================
 // === THEME HANDLING ===
@@ -236,7 +262,6 @@ function clearCart() { cart = {}; saveCart(); renderCart(); updateCartBadge(); }
 // Cart modal elements
 const cartBtn = document.getElementById('cart-btn');
 const cartBadge = document.getElementById('cart-badge');
-const cartModal = document.getElementById('cart-modal');
 const cartItemsEl = document.getElementById('cart-items');
 const cartCountEl = document.getElementById('cart-count');
 const cartTotalEl = document.getElementById('cart-total');
@@ -289,18 +314,14 @@ function renderCart() {
 if (cartBtn) {
   cartBtn.addEventListener('click', (e)=>{ 
     e.preventDefault(); 
-    if (!cartModal) return; 
-    cartModal.hidden = false; 
-    cartModal.setAttribute('aria-hidden','false'); 
+    openModal('cart');
     renderCart(); 
   });
 }
 
 if (cartClose) {
   cartClose.addEventListener('click', ()=>{ 
-    if (!cartModal) return; 
-    cartModal.hidden = true; 
-    cartModal.setAttribute('aria-hidden','true'); 
+    closeAllModals();
   });
 }
 
@@ -316,7 +337,7 @@ if (grid) {
     if (buy) { 
       const id = Number(buy.dataset.id); 
       addToCart(id);
-      openCheckoutModal();
+      setTimeout(() => openCheckoutModal(), 100);
     }
   });
 }
@@ -348,7 +369,6 @@ updateCartBadge();
 // ============================================
 // === CHECKOUT MODAL ===
 // ============================================
-const checkoutModal = document.getElementById('checkout-modal');
 const checkoutClose = document.getElementById('checkout-close');
 const checkoutCancel = document.getElementById('checkout-cancel');
 const createTicketBtn = document.getElementById('create-ticket-btn');
@@ -372,10 +392,7 @@ function openCheckoutModal() {
     return;
   }
   
-  if (cartModal) {
-    cartModal.hidden = true;
-    cartModal.setAttribute('aria-hidden','true');
-  }
+  openModal('checkout');
   
   // Populate checkout items
   if (checkoutItems) {
@@ -398,29 +415,14 @@ function openCheckoutModal() {
   if (checkoutTotal) {
     checkoutTotal.textContent = `€${cartTotal().toFixed(2)}`;
   }
-  
-  if (checkoutModal) {
-    checkoutModal.hidden = false;
-    checkoutModal.setAttribute('aria-hidden','false');
-  }
 }
 
 if (checkoutClose) {
-  checkoutClose.addEventListener('click', ()=>{
-    if (checkoutModal) {
-      checkoutModal.hidden = true;
-      checkoutModal.setAttribute('aria-hidden','true');
-    }
-  });
+  checkoutClose.addEventListener('click', ()=>{ closeAllModals(); });
 }
 
 if (checkoutCancel) {
-  checkoutCancel.addEventListener('click', ()=>{
-    if (checkoutModal) {
-      checkoutModal.hidden = true;
-      checkoutModal.setAttribute('aria-hidden','true');
-    }
-  });
+  checkoutCancel.addEventListener('click', ()=>{ closeAllModals(); });
 }
 
 if (createTicketBtn) {
@@ -476,10 +478,7 @@ if (createTicketBtn) {
     
     // Clear cart and close modal
     clearCart();
-    if (checkoutModal) {
-      checkoutModal.hidden = true;
-      checkoutModal.setAttribute('aria-hidden','true');
-    }
+    closeAllModals();
     
     // Open Discord
     window.open(DISCORD_LINK, '_blank');
@@ -490,7 +489,6 @@ if (createTicketBtn) {
 // === ACCOUNT / TICKETS MODAL ===
 // ============================================
 const accountBtn = document.getElementById('account-btn');
-const accountModal = document.getElementById('account-modal');
 const accountClose = document.getElementById('account-close');
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
@@ -500,21 +498,13 @@ const profileInfo = document.getElementById('profile-info');
 if (accountBtn) {
   accountBtn.addEventListener('click', (e)=>{
     e.preventDefault();
-    if (accountModal) {
-      accountModal.hidden = false;
-      accountModal.setAttribute('aria-hidden','false');
-      renderAccountData();
-    }
+    openModal('account');
+    renderAccountData();
   });
 }
 
 if (accountClose) {
-  accountClose.addEventListener('click', ()=>{
-    if (accountModal) {
-      accountModal.hidden = true;
-      accountModal.setAttribute('aria-hidden','true');
-    }
-  });
+  accountClose.addEventListener('click', ()=>{ closeAllModals(); });
 }
 
 tabBtns.forEach(btn => {
@@ -626,8 +616,7 @@ function renderAccountData() {
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
-      overlay.hidden = true;
-      overlay.setAttribute('aria-hidden','true');
+      closeAllModals();
     }
   });
 });
