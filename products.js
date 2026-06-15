@@ -9,7 +9,5 @@ const products = [
   { id: 7, name: "Gilded Blackstone", description: "Gilded Blackstone", price: 0.99, stock: 78, enabled: true, image: "gilded.png" },
   { id: 8, name: "Windrill", description: "Special Windrill tool for fast mining", price: 1.99, stock: 10, enabled: true, image: "drill.png" },
   { id: 9, name: "End Crystal", description: "1x End Crystal for Crystal PvP", price: 0.50, stock: 320, enabled: true, image: "end_crystal.gif" },
-  // playful additions retained
-  { id: 101, name: "Mystery Box (Maybe Rare)", description: "Random rewards — could be amazing, could be dirt.", price: 2.50, stock: 42, enabled: true, image: "gilded.png" },
-  { id: 102, name: "Lucky Cookie", description: "Eat for luck (totally not rigged).", price: 0.49, stock: 200, enabled: true, image: "golden_apple.gif" }
+
 ];
